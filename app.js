@@ -8,6 +8,9 @@ app.use(express.json());
 //Import route
 const studentRoutes = require("./routes/students");
 const courseRoutes = require("./routes/courses");
+const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
+const cartRoutes = require("./routes/cartRoutes");
 
 //Home route
 app.get("/", (req, res) => {
@@ -17,6 +20,9 @@ app.get("/", (req, res) => {
 //Mount routers
 app.use('/students', studentRoutes);
 app.use('/courses', courseRoutes);
+app.use("/users", userRoutes);
+app.use("/products", productRoutes);
+app.use("/cart", cartRoutes);
 
 //Custom 404 handler for invalid routes
 app.use((req, res) => {
