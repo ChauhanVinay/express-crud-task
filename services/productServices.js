@@ -1,8 +1,8 @@
-
+const path = require('path');
 
 //Service logic for  fetching all products
 const fetchAllProducts = () => {
-    return 'Fetching all products';
+    return path.join(__dirname, '..', 'views', 'product.html');
 };
 
 //Service logic for fetching a single product by ID
