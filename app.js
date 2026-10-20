@@ -27,10 +27,16 @@ app.use("/users", userRoutes);
 app.use("/products", productRoutes);
 app.use("/cart", cartRoutes);
 
-//Custom 404 handler for invalid routes
-app.use((req, res) => {
-    res.status(404).send('Page not found');
+// Catch-all 404 handler for undefined routes
+app.use((req, res, next) => {
+  const error = new Error('Page not found');
+  error.statusCode = 404;
+  next(error); // Pass 404 error to the central error handler
 });
+
+// Centralized Error Handling Middleware (MUST have 4 arguments and be placed last)
+const errorHandler = require('./middlewares/errorHandler');
+app.use(errorHandler);
 
 //Start the express server
 app.listen(PORT, () => {
