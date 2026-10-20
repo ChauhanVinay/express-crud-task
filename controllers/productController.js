@@ -11,8 +11,8 @@ const getProductById = (req, res) => {
 };
 
 const createProducts = (req, res) => {
-    const result = productService.createNewProduct();
-    res.send(result);
+    const result = productService.createNewProduct(req.body);
+    res.status(201).json(result);
 };
 
 module.exports = {

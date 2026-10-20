@@ -11,8 +11,9 @@ const fetchProductById = (id) => {
 };
 
 //Service logic for adding a product
-const createNewProduct = () => {
-    return `Adding a new product`;
+const createNewProduct = (productData) => {
+    console.log('Product added on server:', productData);
+    return productData;
 };
 
 module.exports = {
